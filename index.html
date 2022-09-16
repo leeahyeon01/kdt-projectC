@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Index</title>
+  <title> Movie Index </title>
   <style>
     * {
       margin: 0;
@@ -45,8 +45,8 @@
 
     main {
       width: 99vw;
-      height: 224vh;
-      margin-top: 5vw;
+      height: 203vh;
+
     }
 
     section {
@@ -69,13 +69,17 @@
       /* background-image: url('./img/topgun.jpg');
       background-size: cover; */
     }
+
     section>img {
       width: 100%;
+      position: absolute;
     }
 
     section>div>div:nth-of-type(1) {
       width: 50%;
       height: 100%;
+      z-index: 1;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     }
 
     section>div>div:nth-of-type(2) {
@@ -107,12 +111,22 @@
 
     main>div:nth-of-type(2)>div:nth-of-type(2) {
       display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main>div:nth-of-type(2)>div:nth-of-type(2)>div {
+      display: flex;
       flex-direction: row;
       align-content: stretch;
       justify-content: space-around;
       align-items: center;
       flex-wrap: wrap;
-      height: 75vh;
+      height: 56vh;
+      width: 63vw;
     }
 
     footer {
@@ -130,7 +144,7 @@
 
     .boxOfficeDiv {
       width: 9vw;
-      height: 10vh;
+      height: 24vh;
       background-color: beige;
     }
 
@@ -141,7 +155,7 @@
     }
 
     .genreDiv {
-      width: 20vw;
+      width: 13vw;
       height: 15vh;
       background-color: rgba(20, 1, 1, 1);
       color: white;
@@ -160,7 +174,7 @@
     </header>
     <main>
       <section>
-        <img src="./img/topgun.jpg" alt="이거슨 영상을 가장한 이미지">
+        <img src="./img/mcu.jpg" alt="이거슨 영상을 가장한 이미지">
         <div>
           <div>설명란</div>
           <div>영화 예고편 영상</div>
@@ -190,19 +204,21 @@
           <div>랜덤 영화 추천</div>
         </div>
         <div>
-          <div class="genreDiv">장르</div>
-          <div class="genreDiv">장르</div>
-          <div class="genreDiv">장르</div>
-          <div class="genreDiv">장르</div>
-          <div class="genreDiv">장르</div>
-          <div class="genreDiv">장르</div>
-          <div class="genreDiv">장르</div>
-          <div class="genreDiv">장르</div>
+          <div>
+            <div class="genreDiv">장르</div>
+            <div class="genreDiv">장르</div>
+            <div class="genreDiv">장르</div>
+            <div class="genreDiv">장르</div>
+            <div class="genreDiv">장르</div>
+            <div class="genreDiv">장르</div>
+            <div class="genreDiv">장르</div>
+            <div class="genreDiv">장르</div>
+          </div>
         </div>
       </div>
     </main>
     <footer>
-      <div>여기는 푸터</div>
+      <div> 여기는 푸터 </div>
     </footer>
   </div>
   <script>
@@ -216,13 +232,13 @@
     signIn.addEventListener('click', (event) => {
       signIn.style.display = "none";
       signOut.style.display = "block";
-      inOut = false;
+      //inOut = false;
     });
 
     signOut.addEventListener('click', (event) => {
       signOut.style.display = "none";
       signIn.style.display = "block";
-      inOut = true;
+      //inOut = true;
     });
 
   </script>
