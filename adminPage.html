@@ -116,31 +116,38 @@
       justify-content: flex-start;
       align-items: center;
     }
+
     #boardList {
-      width : 30vw;
+      width: 30vw;
       height: 30vh;
     }
-    #boardListName{
+
+    #boardListName {
       display: flex;
       flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
+      justify-content: space-between;
+      align-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
     }
 
-    .boardListContent{
+    .boardListContent {
       display: flex;
       flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
+      justify-content: space-between;
+      align-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
     }
 
 
     #targetStatVisior {
       display: none;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: flex-start;
+      align-items: center;
     }
 
     #listDiv {
@@ -393,7 +400,41 @@
 
       </div>
 
-      <div id="targetStatVisior"> 방문자 통계 </div>
+      <div id="targetStatVisior">
+        <div>방문자 통계</div>
+        <div>
+          <div>
+            <div>방문자 추이</div>
+            <div>
+              <img src="./img/visiors_graph.png" alt="이거슨 그래프를 가장한 이미지">
+            </div>
+          </div>
+          <div>
+            <div>새로 쓴 게시물</div>
+            <div>
+              <img src="./img/board.png" alt="이거슨 통계를 가장한 이미지">
+            </div>
+          </div>
+          <div>
+            <div>추천</div>
+            <div>
+              <img src="./img/good.png" alt="이거슨 통계를 가장한 이미지">
+            </div>
+          </div>
+          <div>
+            <div>조회</div>
+            <div>
+              <img src="./img/click.png" alt="이거슨 통계를 가장한 이미지">
+            </div>
+          </div>
+          <div>
+            <div>방문자 수</div>
+            <div>
+              <img src="./img/views.png" alt="이거슨 통계를 가장한 이미지">
+            </div>
+          </div>
+        </div>
+      </div>
 
     </main>
 

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    #root {
+      width: 99vw;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    main {
+      width: 50vw;
+      height: 150vh;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: space-evenly;
+      align-items: center;
+      
+    }
+    section {
+      width: 30vw;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;      
+    }
+
+    section>div:nth-of-type(1) {
+      margin-top: 10%;
+      font-size: 258%;
+    }
+
+    section>div:nth-of-type(2) {
+      width: 10vw;
+      height: 5vh;
+      
+    }
+
+    section>div:nth-of-type(2)>div:nth-of-type(1) {
+      width: 10vw;
+      border: 1px solid gray;
+    }
+
+    aside {
+      width: 20vw;
+      height: 50vh;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: space-evenly;
+      align-items: center;
+      border: 1px solid gray;
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="root">
+    
+    <main>
+      <section>
+        <div>게시판 이름</div>
+        <div>
+          <div>
+            <div>title</div>            
+          </div>
+          <div>
+            <div>
+              글 내용
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <div>작성자 프로필</div>
+        <div>
+          <div>닉네임</div>
+          <div>프로필 사진</div>
+        </div>
+      </aside>
+    </main>
+
+    <div><!-- 댓글란 --></div>
+    <div><!-- 글목록 --></div>
+  </div>
+</body>
+</html>
