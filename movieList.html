@@ -1,80 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MovieList</title>
-  <script type="module" src="./movieRank.js" defer></script>
-</head>
-<body>
-  <div id = "root"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieList</title>
+    <script type="module" src="./movieRank.js" defer></script>
+  </head>
+  <body>
+    <div id="root"></div>
 
-  <script>
+    <script>
+      class actorData {
+        constructor(peopleNm, filmoNames, peopleCd, repRoleNm) {
+          this.peopleNm = peopleNm;
+          this.filmoNames = filmoNames;
+          this.peopleCd = peopleCd;
+          this.repRoleNm = repRoleNm;
+        }
+      }
 
+      function actor() {
+        let actorInfo = [];
+        const api_KEY = "19d2a86ba729ecb37eccaba04437d50b";
+        const peopleNm = "공유";
+        const api_URL = `http://kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleList.json?key=${api_KEY}&peopleNm=${peopleNm}`;
+        const request = new XMLHttpRequest();
+        request.open("GET", api_URL);
+        request.responseType = "json";
+        request.send();
+        request.addEventListener("load", () => {
+          const date = request.response;
+          // console.log('영화배우');
+          // console.log(date);
 
-    
-  class actorData{
-    constructor(peopleNm, filmoNames, peopleCd, repRoleNm){
-      this.peopleNm = peopleNm;
-      this.filmoNames =filmoNames;
-      this.peopleCd = peopleCd;
-      this.repRoleNm = repRoleNm
-    }
-  }
+          const information = date.peopleListResult.peopleList;
+          console.log(information);
 
+          information.forEach(value => {
+            actorInfo.push(
+              new actorData(
+                value.peopleNm,
+                value.filmoNames,
+                value.peopleCd,
+                value.repRoleNm
+              )
+            );
+          });
 
-  function actor(){
-    let actorInfo = [];
-    const api_KEY = '19d2a86ba729ecb37eccaba04437d50b';
-    const peopleNm = '김다미';
-    const api_URL = `http://kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleList.json?key=${api_KEY}&peopleNm=${peopleNm}`;
-    const request = new XMLHttpRequest();
-    request.open("GET", api_URL);
-    request.responseType = "json";
-    request.send();
-    request.addEventListener("load", ()=>{
-    const date = request.response;
-    // console.log('영화배우');
-    // console.log(date);
+          // console.log(actorInfo[0].repRoleNm);
 
-    const information =date.peopleListResult.peopleList;
-    console.log(information);
+          // actorInfo.forEach((item, index, arr)=>{
+          //   if(item.repRoleNm === '배우'){
+          //     console.log(item.repRoleNm)
+          //   }
 
-    
-    information.forEach((value)=>{
-      actorInfo.push(new actorData(value.peopleNm, value.filmoNames, value.peopleCd, value.repRoleNm));
-    })
+          // });
 
+          // repRoloeNm이 배우인 사람만 찾으려고 하는데 배우가 여러명일 때 1명만 나오는 상태. 왜인지 모르겠음.
 
-    // console.log(actorInfo[0].repRoleNm);
-    
-    // actorInfo.forEach((item, index, arr)=>{
-    //   if(item.repRoleNm === '배우'){
-    //     console.log(item.repRoleNm)
-    //   }
-      
-    // });
+          actorInfo.filter((item, index, arr) => {
+            console.log(item, index);
+          });
 
-    // repRoloeNm이 배우인 사람만 찾으려고 하는데 배우가 여러명일 때 1명만 나오는 상태. 왜인지 모르겠음. 
+          // 그래서 filter로 다시 해보고 있는 중
+        });
+      }
 
-    actorInfo.filter((item, index, arr)=>{
-      console.log(item, index);
-    });
-    
-
-    // 그래서 filter로 다시 해보고 있는 중 
-    
-
-    
-
-    });
-
-  }
-
-  actor();
-
-  </script>
-
-</body>
+      actor();
+    </script>
+  </body>
 </html>
