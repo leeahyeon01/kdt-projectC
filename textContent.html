@@ -63,6 +63,24 @@
       border: 1px solid gray;
     }
 
+    section>div:nth-of-type(2)>div:nth-of-type(2) {
+      width: 29vw;
+      border: 1px solid gray;
+    }
+
+    section>div:nth-of-type(2)>div:nth-of-type(3) {
+      width: 29vw;
+      height: 30vw;
+      border: 1px solid gray;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      font-size: 592%;
+    }    
+
     aside {
       width: 20vw;
       height: 50vh;
@@ -74,7 +92,33 @@
       align-items: center;
       border: 1px solid gray;
     }
+
+    aside> div{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 18vw;
+    }
+
+    aside> div:nth-of-type(2)>div:nth-of-type(1) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;      
+    }
+
+    aside> div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1){
+      width: 15vw;
+    }
     
+    aside> div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>img{
+      width: 50%;
+    }
   </style>
 </head>
 <body>
@@ -102,12 +146,27 @@
       </section>
 
       <aside>
-        <div>작성자 프로필</div>
         <div>
-          <div>닉네임</div>
-          <div>프로필 사진</div>
+          <div>작성자 프로필 </div>          
+        </div>
+
+        <div>
+          <div>
+            <div>
+              프로필 사진
+            </div>
+            <div>
+              <img src="./img/profileIcon.png" alt="">
+            </div>
+          </div>
+              
+        </div>
+        <div>
+          <div>닉네임 : </div>
+          <div> 닉네임 표시구간 </div>
         </div>
       </aside>
+
     </main>
 
     <div><!-- 댓글란 --></div>
