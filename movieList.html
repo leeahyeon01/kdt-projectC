@@ -1,73 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MovieList</title>
-    <script type="module" src="./movieRank.js" defer></script>
-  </head>
-  <body>
-    <div id="root"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovieList</title>
+  <script type="module" src="./movieRank.js" defer></script>
+  <script type="module" src="./actorInfo.js" defer></script>
+</head>
+<body>
+  <div id = "root"></div>
 
-    <script>
-      class actorData {
-        constructor(peopleNm, filmoNames, peopleCd, repRoleNm) {
-          this.peopleNm = peopleNm;
-          this.filmoNames = filmoNames;
-          this.peopleCd = peopleCd;
-          this.repRoleNm = repRoleNm;
-        }
-      }
+  <script>
 
-      function actor() {
-        let actorInfo = [];
-        const api_KEY = "19d2a86ba729ecb37eccaba04437d50b";
-        const peopleNm = "공유";
-        const api_URL = `http://kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleList.json?key=${api_KEY}&peopleNm=${peopleNm}`;
-        const request = new XMLHttpRequest();
-        request.open("GET", api_URL);
-        request.responseType = "json";
-        request.send();
-        request.addEventListener("load", () => {
-          const date = request.response;
-          // console.log('영화배우');
-          // console.log(date);
+  
 
-          const information = date.peopleListResult.peopleList;
-          console.log(information);
+    // function Date(){
+    //   const api_KEY = '19d2a86ba729ecb37eccaba04437d50b';
+    //   const targetDt = '20220915';
+    //   const api_URL = `http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${api_KEY}&targetDt=${targetDt}`;
+    //   const request = new XMLHttpRequest();
+    //     request.open("GET", api_URL);
+    //     request.responseType = "json";
+    //     request.send();
+    //     request.addEventListener("load", ()=>{
+    //       const data = request.response;
+    //       console.log(`일별 박스오피스 : `);
+    //       console.log(data);
+    //       const List = data.boxOfficeResult.dailyBoxOfficeList;
+    //       console.log(List);
+          
 
-          information.forEach(value => {
-            actorInfo.push(
-              new actorData(
-                value.peopleNm,
-                value.filmoNames,
-                value.peopleCd,
-                value.repRoleNm
-              )
-            );
-          });
+    //     });
+    //   }
+    //   Date();
 
-          // console.log(actorInfo[0].repRoleNm);
 
-          // actorInfo.forEach((item, index, arr)=>{
-          //   if(item.repRoleNm === '배우'){
-          //     console.log(item.repRoleNm)
-          //   }
+    
 
-          // });
+      
 
-          // repRoloeNm이 배우인 사람만 찾으려고 하는데 배우가 여러명일 때 1명만 나오는 상태. 왜인지 모르겠음.
+    // function MovieList(){
+    //   const api_KEY = '19d2a86ba729ecb37eccaba04437d50b';
+    //   const curPage = "1";
+    //   const itemPerPage = '10';
+    //   const api_URL = `http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=${api_KEY}&curPage=${curPage}&itemPerPage=${itemPerPage}`;
+    //   const request = new XMLHttpRequest();
+    //     request.open("GET", api_URL);
+    //     request.responseType = "json";
+    //     request.send();
+    //     request.addEventListener("load", ()=>{
+    //       const data = request.response;
+    //       console.log(`영화 리스트 : `);
+    //       console.log(data);
+    //       const List = data.movieListResult.movieList;
+    //       // for(const key in List){
+    //       //   console.log(`${key} : ${List[key]}`);
+    //       // }
+    //       // Array.from(List);
+    //       // console.log(Array.isArray(List));
+          
+    //     });
+    // }
+    // MovieList();
 
-          actorInfo.filter((item, index, arr) => {
-            console.log(item, index);
-          });
+  // class actorData{
+  //   constructor(peopleNm, filmoNames, peopleCd, repRoleNm){
+  //     this.peopleNm = peopleNm;
+  //     this.filmoNames =filmoNames;
+  //     this.peopleCd = peopleCd;
+  //     this.repRoleNm = repRoleNm
+  //   }
+  // }
 
-          // 그래서 filter로 다시 해보고 있는 중
-        });
-      }
 
-      actor();
-    </script>
-  </body>
+// function actor(){
+//   let actorInfo = [];
+//     const api_KEY = '19d2a86ba729ecb37eccaba04437d50b';
+//     const peopleNm = '이정재';
+//     const api_URL = `http://kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleList.json?key=${api_KEY}&peopleNm=${peopleNm}`;
+//   const request = new XMLHttpRequest();
+//   request.open("GET", api_URL);
+//   request.responseType = "json";
+//   request.send();
+//   request.addEventListener("load", ()=>{
+//     const date = request.response;
+//     console.log('영화배우');
+//     console.log(date);
+
+//     const information =date.peopleListResult.peopleList;
+//     console.log(information);
+
+    
+//     information.forEach((value)=>{
+//       actorInfo.push(new actorData(value.peopleNm, value.filmoNames, value.peopleCd, value.repRoleNm));
+//     })
+
+
+//     console.log(actorInfo[0].repRoleNm);
+    
+//     actorInfo.forEach((item, index, arr)=>{
+//       if(item.repRoleNm === '배우'){
+//         console.log(item.repRoleNm)
+//       }
+      
+//     });
+
+//     actorInfo.filter((item, index, arr)=>{
+//       console.log(item.repRoleNm );
+//       return itme.repRoleNm === '배우';
+//     });
+
+//     const newrepRoleNm = actorInfo.filter(item => {
+//         if(item.repRoleNm === '배우'){
+//           return true;
+//         }
+//         return false;
+//     });
+//     console.log(newrepRoleNm);
+    
+  
+  
+
+    
+
+//     let ul = document.createElement('ul');
+//     newrepRoleNm.forEach(value=>{
+//       let li = document.createElement('li');
+//       li.textContent = `배우 이름 : ${value.peopleNm}, 출연작품 : ${value.filmoNames}, 배우코드명 : ${value.peopleCd}`;
+//       ul.appendChild(li);
+//     })
+//     root.appendChild(ul);
+
+  
+//   });
+
+// }
+
+// actor();
+
+</script>
+
+</body>
 </html>
