@@ -14,7 +14,7 @@
     function movie (){
       let totalData = [];
         const api_KEY = '19d2a86ba729ecb37eccaba04437d50b';
-        const targetDt = '20220917';
+        const targetDt = '20220918';
         const api_URL = `http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${api_KEY}&targetDt=${targetDt}`;
         const request = new XMLHttpRequest();
         request.open("GET", api_URL);
@@ -50,7 +50,7 @@
           totalData.forEach(value=>{
             let li = document.createElement('li');
             console.log(value.title);
-            li.textContent =`이번주 박스오피스 ${value.rank}위는 ${value.openDt}에 개봉한 ${value.title}입니다.`;
+            li.textContent =`오늘 박스오피스 ${value.rank}위는 ${value.openDt}에 개봉한 ${value.title}입니다.`;
             ul.appendChild(li);
           })
           root.appendChild(ul);
