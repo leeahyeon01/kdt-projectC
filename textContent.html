@@ -53,7 +53,13 @@
     }
 
     section>div:nth-of-type(2)>div:nth-of-type(1) {
-      width: 10vw;
+      width: 29vw;
+      display: flex;    
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: space-between;
+      align-items: center;
       border: 1px solid gray;
     }
 
@@ -79,11 +85,17 @@
         <div>게시판 이름</div>
         <div>
           <div>
-            <div>title</div>            
+            <div>title</div>         
+            <div>date</div>
+            <div>views</div>
+            <div>goods</div>
+          </div>
+          <div>
+            <div>작성자</div>
           </div>
           <div>
             <div>
-              글 내용
+              context
             </div>
           </div>
         </div>

@@ -32,7 +32,14 @@
     }
 
     header>div {
+      display: flex;
       width: 7vw;
+      width: 14vw;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: flex-start;
+      align-items: center;
     }
 
     header>div:nth-of-type(3) {
@@ -167,10 +174,15 @@
 <body>
   <div id="root">
     <header>
-      <div>검색</div>
+      <div>
+        <div>
+          <input type="text" value="" name="search">
+        </div>
+        <div>검색</div>
+      </div>
       <div id="signIn">로그인</div>
       <div id="signOut">로그아웃</div>
-      <div>게시판</div>
+      <div id="boardDiv">게시판</div>
     </header>
     <main>
       <section>
@@ -225,6 +237,7 @@
     const root = document.getElementById('root');
     const signIn = document.getElementById('signIn');
     const signOut = document.getElementById('signOut');
+    const boardDiv = document.getElementById('boardDiv');
 
     // console.dir(signIn);
     // console.log(signOut);
@@ -239,6 +252,10 @@
       signOut.style.display = "none";
       signIn.style.display = "block";
       //inOut = true;
+    });
+
+    boardDiv.addEventListener('click', (event) => {
+      location.href="./board.html";
     });
 
   </script>
