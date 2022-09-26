@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #root {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .div1 {
+        width: 35vw;
+        height: 72vh;
+        border: solid 1px black;
+        background-color: black;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        align-content: center;
+      }
+
+      .mainDiv {
+        width: 40vw;
+        height: 50vh;
+        /* border: solid 1px black; */
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: space-between;
+        justify-content: center;
+        align-items: center;
+      }
+
+      header {
+        width: 20px;
+        height: 22px;
+        font-weight: bold;
+        border: solid 1px black;
+        margin-left: 550px;
+        text-align: center;
+        color: white;
+      }
+
+      img {
+        width: 200px;
+      }
+
+      .explan {
+        width: 330px;
+        height: 400px;
+        margin: 20px;
+        color: white;
+      }
+
+      .explan > div:nth-child(1) {
+        font-size: 25px;
+        font-weight: bold;
+        line-height: 50px;
+        color: aliceblue;
+      }
+      .heart {
+        border: solid 1px white;
+        color: azure;
+      }
+
+      .explan > div {
+        line-height: 2em;
+        font-size: 15px;
+        color: yellow;
+      }
+
+      .explan > div > span {
+        font-size: 15px;
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="div1">
+        <header><div>x</div></header>
+        <div class="mainDiv">
+          <div class="poster"><img src="./공조2.jpg" alt="" /></div>
+          <div class="explan">
+            <div>공조2:인터내셔날</div>
+
+            <div>평점 <span>⭐⭐⭐⭐⭐ 8.04</span></div>
+            <div>
+              개요 <span> 액션/범죄 | 한국 | 129분 | 2022.09.07 개봉</span>
+            </div>
+            <div>
+              감독
+              <span>이석훈</span>
+            </div>
+            <div>
+              등급
+              <span>[국내] 15세 관람가</span>
+            </div>
+            <div>
+              출연
+              <span>현빈,유해진,윤아,다니엘헤니</span>
+            </div>
+            <span>
+              경찰 내 최고 엘리트 조직 내사과 소속 경위 ‘은시연’(공효진).
+              조직에서 유일하게 믿고 따르는 ‘윤과장’(염정아)과 함께 F1 레이서
+              출신의 사업가 ‘정재철’(조정석)을 잡기 위해 수사망을 조여가던
+              시연은 무리한 강압 수사를 벌였다는 오명을 쓰고 뺑소니 전담반으로
+              좌천된다.
+            </span>
+          </div>
+        </div>
+        <div class="heart">찜하기💖</div>
+      </div>
+    </div>
+  </body>
+</html>

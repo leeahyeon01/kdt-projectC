@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #root {
+        width: 100vw;
+        height: 90vh;
+      }
+      div {
+        border: solid 1px black;
+      }
+      header {
+        width: 100vw;
+        height: 5vh;
+        border: solid 1px red;
+        display: flex;
+        justify-content: flex-end;
+        color: aliceblue;
+        background-color: black;
+      }
+      header > div {
+        margin: 10px 24px 10px 10px;
+      }
+
+      .maindiv {
+        background-color: black;
+        width: 100vw;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
+      .maindiv > div {
+        /* border: solid 1px blue; */
+        width: 100vw;
+        height: 25vh;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+      }
+
+      .maindiv > div > div {
+        background: white;
+        width: 18vw;
+        height: 23vh;
+        margin: 5px;
+      }
+
+      footer {
+        text-align: center;
+        line-height: 50px;
+        background-color: blue;
+        font-weight: bold;
+      }
+
+      input {
+        padding: 0 1em;
+        border: 0;
+        height: 30px;
+        color: #333;
+        caret-color: red;
+        border-radius: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <header>
+        <input type="text" id="input" />
+        <div id="searchBtn">검색</div>
+        <div id="loginBtn">로그인</div>
+        <div id="notice_BoardBtn">게시판</div>
+      </header>
+
+      <div class="maindiv">
+        <div>
+          <div id="movieINfor"></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        <div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        <div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+
+      <footer>footer</footer>
+    </div>
+
+    <script>
+      const searchBtn = document.getElementById("searchBtn");
+      const inputDiv = document.getElementById("input");
+      inputDiv.style.display = "none";
+
+      //검색 input창 생기고 없어지고
+      let status = true;
+      searchBtn.addEventListener("click", e => {
+        if (status) {
+          inputDiv.style.display = "block";
+          status = false;
+        } else {
+          inputDiv.style.display = "none";
+          status = true;
+        }
+      });
+
+      //로그인창 popup
+      const login = document.getElementById("loginBtn");
+
+      login.addEventListener("click", e => {
+        // location.href = "./login.html";
+        window.open("./login.html", "popup");
+        //targetDiv = this.getAttribute("./login.html");
+      });
+
+      const moviePoster = document.getElementById("movieINfor");
+      console.log(moviePoster);
+
+      moviePoster.addEventListener("click", e => {
+        window.open("./moiveINformation.html");
+      });
+    </script>
+  </body>
+</html>
