@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #root {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      width: 99vw;
+      height: auto;
+    }
+
+    #categoryDiv>div:nth-of-type(2) {
+      display: none;
+    }
+
+    #categoryDiv>div:nth-of-type(3) {
+      display: none;
+    }
+
+    #boardNameDiv {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: space-around;
+      align-items: center;
+      width: 30vw;
+      height: 33vh;
+    }
+
+    #boardNameDiv>div {
+      background-color: lightgrey;
+      width: 8vw;
+      height: 4vw;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      font-size: 155%;
+      border-radius: 13px;
+    }
+
+    #boardNameDiv>div:hover {
+      background-color: salmon;
+      color: white;
+      cursor: pointer;
+    }
+
+    #root>div:nth-of-type(2)>div:nth-of-type(1) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      width: 45vw;
+      font-weight: bold;
+    }
+
+    #contentNameDiv {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: space-between;
+      align-items: center;
+      width: 45vw;
+      font-weight: bold;
+    }   
+
+    .contentListDiv {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: space-between;
+    }
+  
+    .contentListDiv:hover{
+      text-decoration: underline;
+      cursor: pointer;
+    }  
+
+    #root>div:nth-of-type(3) {
+      width: 35vw;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    #root>div:nth-of-type(2)>div:nth-of-type(3) {
+      width: 40vw;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 6%;
+    }
+
+    #root>div:nth-of-type(2)>div:nth-of-type(3)>div:nth-of-type(1) {
+      width: 15vw;
+      height: 1vw;
+      display: flex;
+    }
+
+    #root>div:nth-of-type(2)>div:nth-of-type(3)>div:nth-of-type(2) {
+      width: 5vw;
+      height: 3vw;
+      background-color: lightgrey;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+    }
+
+    #root>div:nth-of-type(2)>div:nth-of-type(3)>div:nth-of-type(2):hover {
+      background-color: salmon;
+      color: white;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <div id="boardNameDiv">
+      <div>
+        <div>자유 게시판</div>
+      </div>
+      <div>
+        <div>공지</div>
+      </div>
+      <div>
+        <div>Q&A</div>
+      </div>
+    </div>
+
+    <div>
+      <div id="categoryDiv">
+        <div>자유 게시판</div>
+        <div>공지 게시판</div>
+        <div>Q&A 게시판</div>
+      </div>
+
+      <div>
+        <div>
+          <div id="contentNameDiv">
+            <div>번 호</div>
+            <div>제 목</div>
+            <div>글쓴이</div>
+            <div>작성시간</div>
+          </div>
+        </div>
+
+        <div id="contentListBox">
+          <div class="contentListDiv"></div>
+
+          <div class="contentListDiv"></div>
+
+          <div class="contentListDiv"></div>
+
+          <div class="contentListDiv"></div>          
+
+          <div class="contentListDiv"></div>
+
+          <div class="contentListDiv"></div>
+
+          <div class="contentListDiv"></div>
+
+          <div class="contentListDiv"></div>
+
+          <div class="contentListDiv"></div>
+
+          <div class="contentListDiv"></div>
+
+          <div class="contentListDiv"></div>
+
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <a ></a>
+          <input type="text" name="search" id="searchBar">
+          <div>작성시간</div>
+        </div>
+        <div>
+          <div>글쓰기</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const root = document.getElementById('root');      
+      const contentListDiv = document.getElementsByClassName('contentListDiv');
+      const boardNameDiv = document.getElementById('boardNameDiv');
+      const categoryDiv = document.getElementById('categoryDiv');
+      const contentListBox = document.getElementById('contentListBox');
+
+      //console.dir(contentListBox);
+
+      for(let i =0; i<boardNameDiv.children.length; i++) {
+        boardNameDiv.children[i].addEventListener('click', (event)=> {
+          if(i === 0) {
+            categoryDiv.children[0].style.display = "flex";
+            categoryDiv.children[1].style.display = "none";
+            categoryDiv.children[2].style.display = "none";
+          } else if(i === 1) {
+            categoryDiv.children[1].style.display = "flex";
+            categoryDiv.children[0].style.display = "none";
+            categoryDiv.children[2].style.display = "none";
+          } else if(i === 2) {
+            categoryDiv.children[2].style.display = "flex";
+            categoryDiv.children[0].style.display = "none";
+            categoryDiv.children[1].style.display = "none";
+          }
+        });
+      }
+      
+      for( let i=0; i<contentListDiv.length; i++) {
+        contentListDiv[i].innerHTML = `<div>No.${i + 1}</div> <div>제목</div> <div>글쓴이</div> <div>작성시간</div>`;
+        contentListDiv[i].addEventListener('click', ( event)=> {
+          location.href="./textContent.html";
+        });
+      }
+    </script>
+</body>
+
+</html>
