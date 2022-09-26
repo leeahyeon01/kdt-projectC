@@ -9,9 +9,7 @@
   <link rel="stylesheet" href="./generalForum.css">
 </head>
 <body>
-  <div id = "root">
-
-  
+  <div id = "root">  
 
     <form method="post" id ="form" onsubmit="return false;">
       <!-- onsumbit="return false;" 는 폼 체크 후 input 내용이 삭제되지 않게하기 위함 -->
@@ -33,7 +31,7 @@
 
       <div>
         <button type="submit" id ="submit">등록하기</button>
-        <button type="button" id ="button">목록으로</button>
+        <button type="button" id ="listBtn">목록으로</button>
         <div></div>
         <!-- 업로드 사진 들어감. 클릭시 구현은 안함. 이미지만 있음.  -->
       </div>
@@ -43,7 +41,13 @@
     
 
   </div>
+  <script>
+    const listBtn = document.getElementById('listBtn'); 
 
+    listBtn.addEventListener('click', (event)=> {
+      location.href="../board.html"
+    });
+  </script>
 
 </body>
 </html>

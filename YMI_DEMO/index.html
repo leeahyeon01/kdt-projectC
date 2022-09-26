@@ -178,10 +178,11 @@
         <div>
           <input type="text" value="" name="search">
         </div>
-        <div>검색</div>
+        <div id="search">검색</div>
       </div>
       <div id="signIn">로그인</div>
       <div id="signOut">로그아웃</div>
+      <div id="myInfo"> 내 정보 보기 </div>
       <div id="boardDiv">게시판</div>
     </header>
     <main>
@@ -238,6 +239,10 @@
     const signIn = document.getElementById('signIn');
     const signOut = document.getElementById('signOut');
     const boardDiv = document.getElementById('boardDiv');
+    const search = document.getElementById('search');
+    const myInfo = document.getElementById('myInfo');
+
+    myInfo.style.display = "none";
 
     // console.dir(signIn);
     // console.log(signOut);
@@ -245,17 +250,27 @@
     signIn.addEventListener('click', (event) => {
       signIn.style.display = "none";
       signOut.style.display = "block";
+      myInfo.style.display = "block";
       //inOut = false;
     });
 
     signOut.addEventListener('click', (event) => {
       signOut.style.display = "none";
       signIn.style.display = "block";
+      myInfo.style.display = "none";
       //inOut = true;
     });
 
     boardDiv.addEventListener('click', (event) => {
-      location.href="./board.html";
+      location.href="./board/board.html";
+    });
+
+    search.addEventListener('click', (event)=> {
+      location.href = "./AllMoviePage.html"
+    });
+
+    myInfo.addEventListener('click', (event)=> {
+      location.href="./myInfo/information/information.html";
     });
 
   </script>

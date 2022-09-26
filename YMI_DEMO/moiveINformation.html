@@ -54,6 +54,10 @@
         color: white;
       }
 
+      header:hover {
+        cursor: pointer;
+      }
+
       img {
         width: 200px;
       }
@@ -91,9 +95,9 @@
   <body>
     <div id="root">
       <div class="div1">
-        <header><div>x</div></header>
+        <header><div id="closeBtn">X</div></header>
         <div class="mainDiv">
-          <div class="poster"><img src="./공조2.jpg" alt="" /></div>
+          <div class="poster"><img src="./img/gongjo2.jpg" alt="" /></div>
           <div class="explan">
             <div>공조2:인터내셔날</div>
 
@@ -125,5 +129,13 @@
         <div class="heart">찜하기💖</div>
       </div>
     </div>
+
+    <script>
+      const closeBtn = document.getElementById('closeBtn');
+
+      closeBtn.addEventListener('click', (event)=> {
+        location.href="./AllMoviePage.html"
+      });
+    </script>
   </body>
 </html>

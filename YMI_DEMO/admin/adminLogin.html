@@ -83,9 +83,16 @@
         </div>
 
         <div class="loginbtn">
-          <div>로그인</div>
+          <div id="loginBtn">로그인</div>
         </div>
       </div>
     </div>
+
+    <script>
+      const loginBtn = document.getElementById('loginBtn');
+      loginBtn.addEventListener('click', (event)=> {
+        location.href="adminPage.html";
+      });
+    </script>
   </body>
 </html>

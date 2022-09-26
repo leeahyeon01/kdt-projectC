@@ -66,7 +66,12 @@
         color: #333;
         caret-color: red;
         border-radius: 30px;
+      }      
+
+      #notice_BoardBtn:hover, #loginBtn:hover, #searchBtn:hover, .movieINfor:hover{
+        cursor: pointer;
       }
+      
     </style>
   </head>
   <body>
@@ -80,27 +85,27 @@
 
       <div class="maindiv">
         <div>
-          <div id="movieINfor"></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div class="movieINfor"></div>
+          <div class="movieINfor"></div>
+          <div class="movieINfor"></div>
+          <div class="movieINfor"></div>
+          <div class="movieINfor"></div>
         </div>
 
         <div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div class="movieINfor"></div>
+          <div class="movieINfor"></div>
+          <div class="movieINfor"></div>
+          <div class="movieINfor"></div>
+          <div class="movieINfor"></div>
         </div>
 
         <div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div class="movieINfor"></div>
+          <div class="movieINfor"></div>
+          <div class="movieINfor"></div>
+          <div class="movieINfor"></div>
+          <div class="movieINfor"></div>
         </div>
       </div>
 
@@ -110,6 +115,7 @@
     <script>
       const searchBtn = document.getElementById("searchBtn");
       const inputDiv = document.getElementById("input");
+      const notice_BoardBtn = document.getElementById('notice_BoardBtn');
       inputDiv.style.display = "none";
 
       //검색 input창 생기고 없어지고
@@ -129,16 +135,23 @@
 
       login.addEventListener("click", e => {
         // location.href = "./login.html";
-        window.open("./login.html", "popup");
+        window.open("./login/login.html", "popup");
         //targetDiv = this.getAttribute("./login.html");
       });
 
-      const moviePoster = document.getElementById("movieINfor");
-      console.log(moviePoster);
+      const movieINfor = document.getElementsByClassName('movieINfor');
+      console.log(movieINfor);
 
-      moviePoster.addEventListener("click", e => {
-        window.open("./moiveINformation.html");
+      for(let i=0; i<movieINfor.length; i++) {
+        movieINfor[i].addEventListener("click", e => {
+        location.href="./moiveINformation.html";
       });
+      }
+
+      notice_BoardBtn.addEventListener('click', (event)=> {
+        location.href="./board/board.html"
+      });
+
     </script>
   </body>
 </html>
