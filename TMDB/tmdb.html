@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const root = document.getElementById('root');
+    const apiKey  = "c4fc9ca86ccc89b226126b6beccd9731";   
+
+    function tmdb() {
+      const url = `https://api.themoviedb.org/3/movie/550?api_key=${apiKey}`;      
+      const request = new XMLHttpRequest();
+      request.open("GET", url);
+      request.responseType = "json";
+      request.send();
+      request.addEventListener("load", () => {
+        const apiDat = request.response;
+        console.log(`TMDB`);
+        console.log(apiDat);
+        console.log(apiDat.backdrop_path);
+        console.log(apiDat.poster_path);
+
+        const imgPoster = `https://image.tmdb.org/t/p/w500/${apiDat.poster_path}`;
+        const posterurl = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/voddFVdjUoAtfoZZp2RUmuZILDI.jpg`;
+        const imgUrl = `https://image.tmdb.org/t/p/w500/${apiDat.backdrop_path}`;
+
+
+        root.innerHTML = `<img src="${imgUrl}" /> <img src="${imgPoster}" /> <img src="${posterurl}" />`;
+        
+
+    });    
+  }
+
+  tmdb();
+  </script>
+</body>
+</html>

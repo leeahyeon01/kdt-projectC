@@ -180,9 +180,11 @@
         </div>
         <div id="search">검색</div>
       </div>
+      
       <div id="signIn">로그인</div>
       <div id="signOut">로그아웃</div>
       <div id="myInfo"> 내 정보 보기 </div>
+
       <div id="boardDiv">게시판</div>
     </header>
     <main>
@@ -245,7 +247,7 @@
     myInfo.style.display = "none";
 
     // console.dir(signIn);
-    // console.log(signOut);
+    // console.log(signOut);    
 
     signIn.addEventListener('click', (event) => {
       signIn.style.display = "none";
@@ -266,7 +268,7 @@
     });
 
     search.addEventListener('click', (event)=> {
-      location.href = "./AllMoviePage.html"
+      location.href = "./AllMoviePage.html";
     });
 
     myInfo.addEventListener('click', (event)=> {
