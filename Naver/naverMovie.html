@@ -9,17 +9,19 @@
 <body>
   <div id="root"></div>
   <img id="naverPoster"/>
+  <img id="thumbnail" src="" alt="">
   <script>
     const root = document.getElementById('root');
     const naverPoster = document.getElementById('naverPoster');
+    const thumbnail = document.getElementById('thumbnail');
     naverPoster.style.width = "20vw"
 
     const clientId = "25xdVcZsmNI4AGvVudX_";
     const clientSecret = "EMu9FXXM5c";
     const proxy = "https://cors-anywhere.herokuapp.com/";
     const query = "avengers";
-    const naverApiUrl = "https://cors-anywhere.herokuapp.com/https://openapi.naver.com/v1/search/movie.json?query=공조";
-
+    const gongjo = "공조"
+    const naverApiUrl = `${proxy}https://openapi.naver.com/v1/search/movie.json?query=${gongjo}`;
     
     //console.log(encodeURI(naverApiUrl));
 
@@ -28,8 +30,6 @@
 
     // console.log(urlParams);
     // //document.write(urlParams);
-
-
 
 
     //const movieUrl = `https://openapi.naver.com/v1/search/movie.json?query=${query}`;
@@ -56,7 +56,11 @@
         console.log(typeof result);        
         console.log(result.items[0].image);
         const poster = result.items[0].image; // https://ssl.pstatic.net/imgmovie/mdi/mit110/2016/201641_P41_135910.jpg
-        naverPoster.src = poster;
+                                              // ssl.pstatic.net/imgmovie/mdi/mit{사이즈}/1363/사진파일명  [110, 120, 150, 250, 500] 가능
+                                              // ssl.pstatic.net/imgmovie/mdi/mit200/2016/201641_P41_135910.jpg
+        const maxSize = "mit500";
+        naverPoster.src = poster.replace("mit110", maxSize);
+        thumbnail.src = poster;
         root.innerHTML = `유저 평점 : ${result.items[0].userRating}`;
       })
       .catch(error => console.log('error', error));
